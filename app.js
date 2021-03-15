@@ -1,4 +1,4 @@
-var greet = require('./greet');
-// Hello!
+// var greet = require('./greet');
+// greet();
 
-greet();
+

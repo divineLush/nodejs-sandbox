@@ -1,6 +1,8 @@
 // js module
 
-var greet = function() { console.log('Hello!') };
+var greet = function() {
+    console.log('Hola!')
+};
 
 // greet();
 

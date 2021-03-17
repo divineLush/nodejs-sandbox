@@ -29,3 +29,12 @@ grtr.greet();
 
 var greet5 = require('./greet5').greet;
 greet5();
+
+var greet6 = require('./greet6');
+// {}
+console.log(greet6);
+
+var greet7 = require('./greet7');
+// {}
+// Hello
+greet7.greet();

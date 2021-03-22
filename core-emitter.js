@@ -1,3 +1,5 @@
+'use strict';
+
 var EventEmitter = require('events');
 var util = require('util');
 
@@ -51,3 +53,23 @@ var cop = new Policeman();
 // this happens because util.inherits only connects protorypes
 // 'Person.call(this)' inside Policeman constructor would fix the issue
 cop.greet();
+
+
+class ES6Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    greet() {
+        console.log('Hello ' + this.firstName + ' ' + this.lastName);
+    }
+}
+
+var john = new ES6Person('John', 'Doe');
+var jane = new ES6Person('Jane', 'Doe');
+
+// true
+console.log(john.__proto__ === jane.__proto__);
+// true
+console.log(john.prototype === jane.prototype);

@@ -73,3 +73,15 @@ var jane = new ES6Person('Jane', 'Doe');
 console.log(john.__proto__ === jane.__proto__);
 // true
 console.log(john.prototype === jane.prototype);
+
+module.exports = class Greeter extends EventEmitter {
+    constructor() {
+        super();
+        this.greeting = 'Hello world';
+    }
+
+    greet() {
+        console.log(this.greeting);
+        this.emit('es6greet');
+    }
+}

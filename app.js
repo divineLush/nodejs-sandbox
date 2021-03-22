@@ -11,3 +11,11 @@ emtr.on('greet', function() {
 });
 
 emtr.emit('greet');
+
+var Greeter = require('./core-emitter.js');
+var grtr = new Greeter();
+grtr.on('es6greet', function() {
+    console.log('greeting from es6 greeter');
+})
+
+grtr.greet();

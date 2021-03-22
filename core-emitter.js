@@ -2,9 +2,16 @@ var EventEmitter = require('events');
 var util = require('util');
 
 function Grtr() {
+    // EventEmitter is a function constructor
+    // the super constructor (the constructor that I'm inheriting from)
+    // 'EventEmitter.call(this)' ensures that any object created from
+    // this construcor has everything an object created from an
+    // EventEmitter would have 
+    EventEmitter.call(this);
     this.greeting = 'Hello world!';
 }
 
+// 'inherits' sets prototype chain
 // any object created from Grtr will also get
 // all the EventEmitter properties and methods
 util.inherits(Grtr, EventEmitter);
@@ -22,3 +29,25 @@ newGrtr.on('greet', function(data) {
 });
 
 newGrtr.greet('Alex');
+
+
+function Person() {
+    this.firstName = 'John';
+    this.lastName = 'Doe';
+}
+
+Person.prototype.greet = function() {
+    console.log('Hello ' + this.firstName + ' ' + this.lastName)
+}
+
+function Policeman() {
+    // Person.call(this);
+    this.badgeNumber = '1234';
+}
+
+util.inherits(Policeman, Person);
+var cop = new Policeman();
+// Hello undefined undefined
+// this happens because util.inherits only connects protorypes
+// 'Person.call(this)' inside Policeman constructor would fix the issue
+cop.greet();
